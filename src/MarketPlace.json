@@ -7,9 +7,63 @@
 				"type": "uint256"
 			}
 		],
+		"name": "addToWatchlist",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
 		"name": "buyItem",
 		"outputs": [],
 		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
+		"name": "deleteItem",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_newName",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_newPrice",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_newImage",
+				"type": "string"
+			}
+		],
+		"name": "editItem",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -23,9 +77,40 @@
 				"internalType": "uint256",
 				"name": "_price",
 				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_image",
+				"type": "string"
 			}
 		],
-		"name": "ListItems",
+		"name": "listItem",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
+		"name": "removeFromWatchlist",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
+		"name": "toggleFavourite",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -52,11 +137,30 @@
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "owner",
+				"name": "_owner",
 				"type": "address"
 			}
 		],
 		"name": "getItemByOwner",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_user",
+				"type": "address"
+			}
+		],
+		"name": "getWatchlist",
 		"outputs": [
 			{
 				"internalType": "uint256[]",
@@ -93,7 +197,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "ItemOwner",
+		"name": "itemOwner",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -116,7 +220,7 @@
 		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "Id",
+				"name": "id",
 				"type": "uint256"
 			},
 			{
@@ -128,6 +232,11 @@
 				"internalType": "uint256",
 				"name": "price",
 				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "image",
+				"type": "string"
 			},
 			{
 				"internalType": "address payable",
@@ -143,6 +252,40 @@
 				"internalType": "bool",
 				"name": "isSold",
 				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "isDeleted",
+				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "isFavourite",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "watchlist",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
